@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db8aad2b-6a11-46a1-b182-16c13562487e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="19"/>
+	<parameter name="fromd" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tod" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\DANIELFRANS\\Documents\\NetBeansProjects\\Laundry\\src\\edu\\daniel\\aplikasi\\laporan\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select SUM(total_harga) as total from transaksi where tgl_transaksi BETWEEN $P{fromd} and $P{tod}]]>
+	</queryString>
+	<field name="total" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="79" forecolor="#FFFFFF" backcolor="#000000" uuid="79af456f-c909-4789-b7ea-a1070100ce37"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laba Rugi]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="68" splitType="Stretch">
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement x="0" y="0" width="260" height="20" uuid="12f4bf22-91bd-454c-bfd6-26d7050ac01b"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fromd}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement x="295" y="0" width="260" height="20" uuid="1ecd9489-dd74-4098-aeb6-44feec569c8c"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tod}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="260" y="0" width="35" height="20" uuid="39aa844a-fcd9-4e1e-b74e-688287a1aead"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[s/d]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="256" splitType="Stretch">
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="216" y="20" width="109" height="20" uuid="7cb2f25f-37c7-4695-a9f6-2f2005d2cc33"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="9fead2b0-6bc1-4991-9699-69e629d8003b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Pendapatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="20" width="100" height="20" uuid="9d77e810-caa7-4a9b-a2dd-292435ada852"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Pendapatan Jasa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="20" uuid="148fe568-0459-4a74-bfdb-a80739fac1b1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Pendapatan Bersih]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="100" height="20" uuid="51753d1e-0f82-45f1-9ca8-4536fc94893a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Biaya-biaya]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="80" width="433" height="105" uuid="1192222d-17a5-4a07-bbd0-c5a52caaf97f"/>
+				<subreportParameter name="fromd">
+					<subreportParameterExpression><![CDATA[$P{fromd}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tod">
+					<subreportParameterExpression><![CDATA[$P{tod}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "laporanKeuangan_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="324" y="40" width="109" height="20" uuid="dafa5850-896c-4f77-88c5-56c129864443"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="185" width="200" height="71" uuid="c1e57f0c-2d94-47fa-8d38-58501ac80dc1"/>
+				<subreportParameter name="fromd">
+					<subreportParameterExpression><![CDATA[$P{fromd}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tod">
+					<subreportParameterExpression><![CDATA[$P{tod}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "laporanKeuangan_subreport2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</columnHeader>
+</jasperReport>
