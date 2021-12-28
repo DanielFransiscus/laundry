@@ -111,7 +111,8 @@ public class FrmTransaksi extends javax.swing.JFrame {
         setUndecorated(true);
         setSize(new java.awt.Dimension(1022, 620));
 
-        jPanel1.setBackground(new java.awt.Color(117, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel1.setText("No Transaksi");
@@ -149,6 +150,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
 
         jScrollPane2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
+        jTableTransaksi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableTransaksi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTableTransaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,9 +179,10 @@ public class FrmTransaksi extends javax.swing.JFrame {
         labelCountTransaksi.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         labelCountTransaksi.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
-        jLabel6.setBackground(new java.awt.Color(117, 204, 255));
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 30)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Cucian Keluar");
+        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel6.setOpaque(true);
 
         btnDaftarOder.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -197,6 +200,8 @@ public class FrmTransaksi extends javax.swing.JFrame {
         labelTotal.setText("0");
         labelTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         labelTotal.setOpaque(true);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnUbahTransaksi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnUbahTransaksi.setText("Ubah");
@@ -330,9 +335,6 @@ public class FrmTransaksi extends javax.swing.JFrame {
                             .addComponent(labelTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(218, 218, 218))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,14 +349,16 @@ public class FrmTransaksi extends javax.swing.JFrame {
                                 .addGap(20, 20, 20)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addComponent(labelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
