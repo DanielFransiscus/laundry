@@ -132,6 +132,9 @@ public class Sequel {
     private final String batalOrder = "DELETE FROM orderku WHERE  no_order = ?";
     private final String autoNumberOrder = "select max(right(no_order,4)) as no from orderku";
     private final String orderExists = "SELECT * FROM orderku WHERE id_admin = ? AND no_order = ?";
+
+    private final String orderExists2 = "SELECT * FROM transaksi WHERE id_admin = ? AND no_order = ?";
+
     private final String showOrder = "SELECT * FROM orderku WHERE id_admin = ? order by tgl_pesan";
     private final String showOrder2 = "SELECT * FROM order_detail WHERE no_order = ?";
 
@@ -717,6 +720,25 @@ public class Sequel {
         return check;
     }
 
+    public boolean isOrderExists2(String noOrder) {
+        Boolean check = true;
+        try {
+            pst = conn.prepareStatement(orderExists2);
+            pst.setInt(1, userID);
+            pst.setString(2, noOrder);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                check = true;
+            } else {
+                check = false;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return check;
+    }
+
     public void simpanOrder(String noOrder, String noPelanggan, String namaPelanggan, String tglOrder, String status) {
         try {
             pst = conn.prepareStatement(simpanOrder);
@@ -1095,14 +1117,14 @@ public class Sequel {
 
     public void hapusTransaksi(String noTransaksi) {
         Option = JOptionPane.YES_NO_OPTION;
-        dialogResult = JOptionPane.showConfirmDialog(null, "Apakah anda yakin membatalkan transaksi ini?", "Hapus", Option);
+        dialogResult = JOptionPane.showConfirmDialog(null, "Apakah anda yakin membatalkan transaksi ini?", "Batal", Option);
         if (dialogResult == 0) {
             try {
                 pst = conn.prepareStatement(hapusTransaksi);
                 pst.setString(1, noTransaksi);
                 i = pst.executeUpdate();
                 if (i > 0) {
-                    JOptionPane.showMessageDialog(null, "Data Transaksi" + "\nberhasil dihapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Transaksi" + "\nberhasil dibatalkan", "Informasi", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Data gagal dihapus" + "\nTerjadi Kesalahan", "Error", JOptionPane.ERROR_MESSAGE);
 
@@ -1632,7 +1654,7 @@ public class Sequel {
         }
     }
 
-    public boolean isTransaksiExists(String noTransaksi, int userID) {
+    public boolean isTransaksiExists(String noTransaksi) {
         Boolean check = true;
         try {
             pst = conn.prepareStatement(transaksiExists);

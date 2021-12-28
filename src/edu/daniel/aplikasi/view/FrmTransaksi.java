@@ -58,6 +58,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
         txtKeluhan.setText("");
         txtDiBayar.setText("");
         txtKembali.setText("");
+        labelTotal.setText("");
     }
 
     public void filterHuruf(KeyEvent a) {
@@ -415,8 +416,8 @@ public class FrmTransaksi extends javax.swing.JFrame {
             int bayar = Integer.parseInt(txtDiBayar.getText());
             int kembali = Integer.parseInt(txtKembali.getText());
             String keluhan = txtKeluhan.getText();
-            if (sql.isTransaksiExists(noTransaksi, userID)) {
-                JOptionPane.showMessageDialog(null, "Tekan tombol transaksi sekali !", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            if (sql.isOrderExists2(noOrder)) {
+                JOptionPane.showMessageDialog(null, "Anda telah melakukan order dan transaksi sebelumnya. \nSilahkan buat data baru di dalam cucian masuk !", "Peringatan", JOptionPane.WARNING_MESSAGE);
             } else {
                 sql.simpanTransaksi(noTransaksi, noOrder, tglTransaksi, total, bayar, kembali, keluhan);
             }
@@ -509,6 +510,8 @@ public class FrmTransaksi extends javax.swing.JFrame {
                 && !"".equals(labelTotal.getText())) {
             String noTransaksi = txtNoTransaksi.getText();
             sql.hapusTransaksi(noTransaksi);
+            resetTransaksi();
+            sql.autoNumberTransaksi();
         } else {
             JOptionPane.showMessageDialog(null, "Anda harus mengisi data dengan lengkap", "Peringatan", JOptionPane.WARNING_MESSAGE);
         }
