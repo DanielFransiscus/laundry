@@ -149,7 +149,9 @@ public class FrmOrder extends javax.swing.JFrame {
         labelCountOrder.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         labelCountOrder.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton1.setText("Daftar Pelanggan");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -159,7 +161,9 @@ public class FrmOrder extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel2.setText("No Pelanggan");
 
+        btnGenerateHarga.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         btnGenerateHarga.setText("Generate");
+        btnGenerateHarga.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnGenerateHarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateHargaActionPerformed(evt);
@@ -226,7 +230,9 @@ public class FrmOrder extends javax.swing.JFrame {
             }
         });
 
+        btnHitungSubTotal.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         btnHitungSubTotal.setText("Hitung");
+        btnHitungSubTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnHitungSubTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHitungSubTotalActionPerformed(evt);
@@ -261,35 +267,45 @@ public class FrmOrder extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btnTambahOrder.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         btnTambahOrder.setText("Simpan");
+        btnTambahOrder.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnTambahOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahOrderActionPerformed(evt);
             }
         });
 
+        btnUbahOrder.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         btnUbahOrder.setText("Ubah");
+        btnUbahOrder.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnUbahOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUbahOrderActionPerformed(evt);
             }
         });
 
+        btnHapusOrder.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         btnHapusOrder.setText("Hapus");
+        btnHapusOrder.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnHapusOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusOrderActionPerformed(evt);
             }
         });
 
+        btnBatalOrder.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         btnBatalOrder.setText("Batal");
+        btnBatalOrder.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnBatalOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBatalOrderActionPerformed(evt);
             }
         });
 
+        btnBatalOrder1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         btnBatalOrder1.setText("Keluar");
+        btnBatalOrder1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnBatalOrder1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBatalOrder1ActionPerformed(evt);

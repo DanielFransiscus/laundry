@@ -875,6 +875,11 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         txtNamaPaket.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txtNamaPaket.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNamaPaketKeyTyped(evt);
+            }
+        });
 
         jTablePaket.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTablePaket.setModel(new javax.swing.table.DefaultTableModel(
@@ -3082,6 +3087,13 @@ public class FrmMain extends javax.swing.JFrame {
         btnLogout.setBackground(DefaultColor);
         icon9.setBackground(DefaultColor);
     }//GEN-LAST:event_btnGantiPasswordMousePressed
+
+    private void txtNamaPaketKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNamaPaketKeyTyped
+        // TODO add your handling code here:
+        if (txtNamaPaket.getText().length() == 35) {
+            JOptionPane.showMessageDialog(null, "Maksimal yang dimasukkan hanya 35 Karakter", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_txtNamaPaketKeyTyped
 
     /**
      * @param args the command line arguments
