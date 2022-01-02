@@ -209,7 +209,7 @@ public class Sequel {
 
             i = pst.executeUpdate();
             if (i > 0) {
-                JOptionPane.showMessageDialog(null, "Password berhasil diubah" + "\nberhasil diubah", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Password berhasil diubah", "Informasi", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Password gagal diubah" + "\nTerjadi Kesalahan", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -534,7 +534,7 @@ public class Sequel {
                 Object[] kolom = new Object[3];
                 kolom[0] = rs.getString("no_pelanggan");
                 kolom[1] = rs.getString("nama_pelanggan");
-                kolom[2] = rs.getInt("kontak");
+                kolom[2] = rs.getString("kontak");
                 modelPelanggan.addRow(kolom);
             }
             int count = 0;
@@ -882,6 +882,7 @@ public class Sequel {
         modelOrderDetail.addColumn("Harga");
         modelOrderDetail.addColumn("Sub Total");
         jTableOrderDetail.setModel(modelOrderDetail);
+        jTableOrderDetail.setDefaultEditor(Object.class, null);
         try {
             pst = conn.prepareStatement(showOrder2);
             pst.setString(1, noOrder);
@@ -977,6 +978,7 @@ public class Sequel {
         modelOrder1.addColumn("Tanggal Pesan");
         modelOrder1.addColumn("Status Pengejerjaan");
         jTableAllOrder.setModel(modelOrder1);
+        jTableAllOrder.setDefaultEditor(Object.class, null);
         try {
             pst = conn.prepareStatement(showStatus);
             pst.setInt(1, userID);
@@ -1183,6 +1185,7 @@ public class Sequel {
         modelTransaksi1.addColumn("Harga");
         modelTransaksi1.addColumn("Sub Total");
         jTableTransaksi.setModel(modelTransaksi1);
+        jTableTransaksi.setDefaultEditor(Object.class, null);
         try {
             pst = conn.prepareStatement(showOrder2);
             pst.setString(1, noOrder);
@@ -1260,7 +1263,6 @@ public class Sequel {
             while (rs.next()) {
                 String paket = rs.getString("nama_paket");
                 cmbJenisPaket2.addItem(paket);
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -1277,8 +1279,7 @@ public class Sequel {
                 harga = rs.getInt("harga");
             }
             txtHarga2.setText(Integer.toString(harga));
-
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -1294,9 +1295,7 @@ public class Sequel {
         modelAllTransaksi.addColumn("Kembali");
         modelAllTransaksi.addColumn("Keluhan");
         jTableAllTransaksi.setModel(modelAllTransaksi);
-        jTableAllTransaksi
-                .setDefaultEditor(Object.class,
-                        null);
+        jTableAllTransaksi.setDefaultEditor(Object.class, null);
         try {
             pst = conn.prepareStatement(showTransaksi);
             pst.setInt(1, userID);
@@ -1360,7 +1359,7 @@ public class Sequel {
                 labelAlamatOutlet.setText("Tempat usaha anda berlokasi di " + alamat);
                 labelKontak.setText("Kontak anda yaitu " + kontak);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -1480,7 +1479,7 @@ public class Sequel {
                 Object[] kolom = new Object[3];
                 kolom[0] = rs.getString("no_pelanggan");
                 kolom[1] = rs.getString("nama_pelanggan");
-                kolom[2] = rs.getInt("kontak");
+                kolom[2] = rs.getString("kontak");
                 modelPelanggan2.addRow(kolom);
             }
             int count = 0;
@@ -1519,7 +1518,6 @@ public class Sequel {
     public void cariKategori(String cari) {
         modelKategori.getDataVector().removeAllElements();
         modelKategori.fireTableDataChanged();
-        jTableAllKategori.setModel(modelKategori);
         try {
             pst = conn.prepareStatement(cariKategori);
             pst.setString(1, "%" + cari + "%");
@@ -1566,7 +1564,7 @@ public class Sequel {
             pst.setString(3, noKategori);
             int i = pst.executeUpdate();
             if (i > 0) {
-                JOptionPane.showMessageDialog(null, "Data Kategori" + "\nBerhasil diubah", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Data Kategori" + "\nberhasil diubah", "Informasi", JOptionPane.INFORMATION_MESSAGE);
                 txtKategori.setText("");
             } else {
                 JOptionPane.showMessageDialog(null, "Data gagal diubah" + "\nAnda harus memeriksa database anda", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1586,7 +1584,7 @@ public class Sequel {
                 pst.setInt(2, userID);
                 int i = pst.executeUpdate();
                 if (i > 0) {
-                    JOptionPane.showMessageDialog(null, "Data Kategori" + "\nBerhasil dihapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Data Kategori" + "\nberhasil dihapus", "Informasi", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Data gagal dihapus" + "\nAnda harus memeriksa database anda", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -1594,7 +1592,6 @@ public class Sequel {
                 System.out.println(e.getMessage());
             }
         }
-
     }
 
     public void tampilKategori() {
@@ -1602,6 +1599,7 @@ public class Sequel {
         modelKategori.addColumn("No Kategori");
         modelKategori.addColumn("kategori");
         jTableAllKategori.setModel(modelKategori);
+        jTableAllKategori.setDefaultEditor(Object.class, null);
         try {
             pst = conn.prepareStatement(tampilKategori);
             rs = pst.executeQuery();
@@ -1649,7 +1647,7 @@ public class Sequel {
                 String namaPelanggan = rs.getString("nama_pelanggan");
                 labelNamaPelanggan2.setText(namaPelanggan);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }

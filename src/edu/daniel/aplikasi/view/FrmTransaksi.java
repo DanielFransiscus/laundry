@@ -150,7 +150,6 @@ public class FrmTransaksi extends javax.swing.JFrame {
 
         jScrollPane2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
-        jTableTransaksi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableTransaksi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTableTransaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -98,28 +98,38 @@
                                   </Group>
                                   <Component id="labelNoPaket2" min="-2" pref="193" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel8" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jLabel7" min="-2" pref="140" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" min="-2" pref="140" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtStatusPengerjaan2" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txtSubTotal2" linkSize="2" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="txtHarga2" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="btnGenerateHarga" min="-2" pref="103" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtSubTotal2" max="32767" attributes="0"/>
+                                          <Component id="txtTanggalOrder2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtStatusPengerjaan2" alignment="1" pref="195" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Component id="btnHitungSubTotal" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="txtTanggalOrder2" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txtHarga2" linkSize="2" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnGenerateHarga" pref="99" max="32767" attributes="0"/>
-                                  </Group>
                               </Group>
+                              <EmptySpace pref="2" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
@@ -141,21 +151,6 @@
                   <EmptySpace pref="18" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="txtTanggalOrder2" linkSize="5" min="-2" pref="27" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                          <Component id="txtStatusPengerjaan2" linkSize="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtHarga2" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="btnGenerateHarga" linkSize="7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtSubTotal2" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="btnHitungSubTotal" linkSize="7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel1" linkSize="5" min="-2" pref="27" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jLabel2" linkSize="5" min="-2" pref="27" max="-2" attributes="0"/>
@@ -169,30 +164,37 @@
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtNoPelanggan2" linkSize="5" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jButton1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="jLabel8" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="txtStatusPengerjaan2" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Component id="labelNamaPelanggan2" min="-2" pref="15" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cmbJenisPaket2" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="cmbJenisPaket2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel5" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="txtHarga2" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="btnGenerateHarga" linkSize="7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="labelNoPaket2" min="-2" pref="15" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtBerat2" linkSize="5" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtBerat2" linkSize="5" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel12" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="txtSubTotal2" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="btnHitungSubTotal" linkSize="7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
-                          <Component id="jLabel8" linkSize="3" min="-2" pref="27" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel7" linkSize="5" min="-2" pref="27" max="-2" attributes="0"/>
-                          <EmptySpace min="58" pref="58" max="-2" attributes="0"/>
-                          <Component id="jLabel5" linkSize="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jLabel12" linkSize="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jLabel7" linkSize="5" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtTanggalOrder2" linkSize="5" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="143" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   <Component id="labelCountOrder" min="-2" pref="16" max="-2" attributes="0"/>
@@ -384,11 +386,6 @@
           <SubComponents>
             <Component class="javax.swing.JTable" name="jTableOrderDetail">
               <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder/>
-                  </Border>
-                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
                 </Property>
