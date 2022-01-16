@@ -387,7 +387,7 @@
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="btnCetakTransaksi" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="btnCetakTransaksi1" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="btnKeluar" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel4" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
@@ -412,7 +412,7 @@
                               <Component id="btnUbahTransaksi" linkSize="2" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="btnCetakTransaksi" linkSize="2" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="btnHapusTransaksi" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="btnCetakTransaksi1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="btnKeluar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -546,7 +546,7 @@
                 <Property name="text" type="java.lang.String" value="Dibayar [enter]"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCetakTransaksi1">
+            <Component class="javax.swing.JButton" name="btnKeluar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="0"/>
@@ -559,7 +559,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCetakTransaksi1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKeluarActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>

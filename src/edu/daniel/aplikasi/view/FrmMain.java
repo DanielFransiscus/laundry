@@ -8,6 +8,7 @@ package edu.daniel.aplikasi.view;
 import edu.daniel.aplikasi.fungsi.Print;
 import edu.daniel.aplikasi.fungsi.Sequel;
 import static edu.daniel.aplikasi.view.FrmMain.jTablePengeluaran;
+import static edu.daniel.aplikasi.view.FrmOrder.cmbJenisPaket2;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
@@ -223,7 +224,6 @@ public class FrmMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikasi Laundry ");
-        setPreferredSize(new java.awt.Dimension(1350, 710));
         setResizable(false);
         setSize(new java.awt.Dimension(1350, 710));
 
@@ -1957,7 +1957,7 @@ public class FrmMain extends javax.swing.JFrame {
         bodyPanelLayout.setVerticalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1968,7 +1968,7 @@ public class FrmMain extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bodyPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(bodyPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
         );
 
         pack();
@@ -2626,7 +2626,7 @@ public class FrmMain extends javax.swing.JFrame {
                 && !"".equals(txtKontakPelanggan.getText())) {
             String noPelanggan = txtNoPelanggan.getText();
             sql.hapusPelanggan(noPelanggan);
-            sql.autoNumberPengeluaran();
+            sql.autoNumberPelanggan();
             sql.showPelanggan();
             resetPelanggan();
         } else {
@@ -2643,7 +2643,7 @@ public class FrmMain extends javax.swing.JFrame {
             String namaPelanggan = txtNamaPelanggan.getText();
             String kontak = txtKontakPelanggan.getText();
             sql.ubahPelanggan(noPelanggan, namaPelanggan, kontak);
-            sql.autoNumberPengeluaran();
+            sql.autoNumberPelanggan();
             sql.showPelanggan();
             resetPelanggan();
         } else {
@@ -2662,7 +2662,7 @@ public class FrmMain extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Anda telah menggunakan nomor ini" + "\nAnda harus mengisi nomor yang berbeda", "Peringatan", JOptionPane.WARNING_MESSAGE);
             } else {
                 sql.simpanPelanggan(noPelanggan, namaPelanggan, kontak);
-                sql.autoNumberPengeluaran();
+                sql.autoNumberPelanggan();
                 sql.showPelanggan();
                 resetPelanggan();
             }
@@ -3029,6 +3029,7 @@ public class FrmMain extends javax.swing.JFrame {
 
     private void btnCucianMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCucianMasukActionPerformed
         // TODO add your handling code here:
+        cmbJenisPaket2.removeAllItems();
         sql.showComboPaket();
         new FrmOrder().setVisible(true);
 

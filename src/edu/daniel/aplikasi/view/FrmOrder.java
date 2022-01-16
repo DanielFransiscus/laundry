@@ -107,7 +107,7 @@ public class FrmOrder extends javax.swing.JFrame {
         btnUbahOrder = new javax.swing.JButton();
         btnHapusOrder = new javax.swing.JButton();
         btnBatalOrder = new javax.swing.JButton();
-        btnBatalOrder1 = new javax.swing.JButton();
+        btnKeluar = new javax.swing.JButton();
 
         dummyField.setText("jTextField1");
 
@@ -302,12 +302,12 @@ public class FrmOrder extends javax.swing.JFrame {
             }
         });
 
-        btnBatalOrder1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        btnBatalOrder1.setText("Keluar");
-        btnBatalOrder1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnBatalOrder1.addActionListener(new java.awt.event.ActionListener() {
+        btnKeluar.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        btnKeluar.setText("Keluar");
+        btnKeluar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBatalOrder1ActionPerformed(evt);
+                btnKeluarActionPerformed(evt);
             }
         });
 
@@ -325,7 +325,7 @@ public class FrmOrder extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBatalOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(btnBatalOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
         jPanel2Layout.setVerticalGroup(
@@ -337,7 +337,7 @@ public class FrmOrder extends javax.swing.JFrame {
                     .addComponent(btnUbahOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHapusOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBatalOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBatalOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -506,6 +506,7 @@ public class FrmOrder extends javax.swing.JFrame {
     private void jTableOrderDetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableOrderDetailMouseClicked
         // TODO add your handling code here:
         int baris = jTableOrderDetail.getSelectedRow();
+
         txtNoOrder2.setText(jTableOrderDetail.getValueAt(baris, 0).toString());
         labelNoPaket2.setText(jTableOrderDetail.getValueAt(baris, 1).toString());
         cmbJenisPaket2.setSelectedItem(jTableOrderDetail.getValueAt(baris, 2).toString());
@@ -555,8 +556,8 @@ public class FrmOrder extends javax.swing.JFrame {
 
     private void cmbJenisPaket2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJenisPaket2ActionPerformed
         // TODO add your handling code here:
-        String namaPaket = cmbJenisPaket2.getSelectedItem().toString();
         if (cmbJenisPaket2.getSelectedIndex() != -1) {
+            String namaPaket = cmbJenisPaket2.getSelectedItem().toString();
             sql.showNoLabelPaket(namaPaket);
         }
     }//GEN-LAST:event_cmbJenisPaket2ActionPerformed
@@ -624,21 +625,21 @@ public class FrmOrder extends javax.swing.JFrame {
             int berat = Integer.parseInt(txtBerat2.getText());
             int harga = Integer.parseInt(txtHarga2.getText());
             int subTotal = Integer.parseInt(txtSubTotal2.getText());
+
             if (sql.isOrderExists(noOrder)) {
                 sql.simpanOrderDetail(noOrder, noPaket, jenis, berat, harga, subTotal);
                 sql.showOrder2(noOrder);
                 sql.totalHarga(noOrder);
                 resetOrder();
             } else {
+                resetOrder();
                 sql.simpanOrder(noOrder, noPelanggan, namaPelanggan, tglOrder, status);
                 sql.simpanOrderDetail(noOrder, noPaket, jenis, berat, harga, subTotal);
                 sql.showOrder2(noOrder);
                 sql.totalHarga(noOrder);
-                resetOrder();
             }
         } else {
             JOptionPane.showMessageDialog(null, "Anda harus mengisi data dengan lengkap", "Peringatan", JOptionPane.WARNING_MESSAGE);
-
         }
     }//GEN-LAST:event_btnTambahOrderActionPerformed
 
@@ -657,12 +658,13 @@ public class FrmOrder extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBatalOrderActionPerformed
 
-    private void btnBatalOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalOrder1ActionPerformed
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
         // TODO add your handling code here:
         resetOrder();
         sql.autoNumberOrder();
+        cmbJenisPaket2.removeAllItems();
         this.dispose();
-    }//GEN-LAST:event_btnBatalOrder1ActionPerformed
+    }//GEN-LAST:event_btnKeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -772,10 +774,10 @@ public class FrmOrder extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBatalOrder;
-    private javax.swing.JButton btnBatalOrder1;
     private javax.swing.JButton btnGenerateHarga;
     private javax.swing.JButton btnHapusOrder;
     private javax.swing.JButton btnHitungSubTotal;
+    private javax.swing.JButton btnKeluar;
     private javax.swing.JButton btnTambahOrder;
     private javax.swing.JButton btnUbahOrder;
     public static final javax.swing.JComboBox<String> cmbJenisPaket2 = new javax.swing.JComboBox<>();

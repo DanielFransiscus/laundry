@@ -49,6 +49,12 @@ public class FrmTransaksi extends javax.swing.JFrame {
         jTableTransaksi.getTableHeader().setOpaque(false);
         jTableTransaksi.getTableHeader().setBackground(new Color(32, 136, 203));
         jTableTransaksi.getTableHeader().setForeground(new Color(255, 255, 255));
+        String noTransaksi = txtNoTransaksi.getText();
+        if (sql.isTransaksiExists(noTransaksi)) {
+            btnSimpanTransaksi.setEnabled(false);
+        } else {
+            btnSimpanTransaksi.setEnabled(true);
+        }
 
     }
 
@@ -263,12 +269,12 @@ public class FrmTransaksi extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel4.setText("Dibayar [enter]");
 
-        btnCetakTransaksi1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btnCetakTransaksi1.setText("Keluar");
-        btnCetakTransaksi1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnCetakTransaksi1.addActionListener(new java.awt.event.ActionListener() {
+        btnKeluar.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        btnKeluar.setText("Keluar");
+        btnKeluar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCetakTransaksi1ActionPerformed(evt);
+                btnKeluarActionPerformed(evt);
             }
         });
 
@@ -286,7 +292,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(btnCetakTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(btnCetakTransaksi1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,7 +316,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
                         .addComponent(btnUbahTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnCetakTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnHapusTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCetakTransaksi1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -427,10 +433,17 @@ public class FrmTransaksi extends javax.swing.JFrame {
             int bayar = Integer.parseInt(txtDiBayar.getText());
             int kembali = Integer.parseInt(txtKembali.getText());
             String keluhan = txtKeluhan.getText();
-            if (sql.isOrderExists2(noOrder)) {
-                JOptionPane.showMessageDialog(null, "Anda telah melakukan order dan transaksi sebelumnya. \nSilahkan buat data baru di dalam cucian masuk !", "Peringatan", JOptionPane.WARNING_MESSAGE);
-            } else {
+
+//            if (sql.isTransaksiExists(noTransaksi)) {
+//                btnSimpanTransaksi.setEnabled(false);
+//            }
+            if (!sql.isTransaksiExists(noTransaksi)) {
                 sql.simpanTransaksi(noTransaksi, noOrder, tglTransaksi, total, bayar, kembali, keluhan);
+                btnSimpanTransaksi.setEnabled(false);
+//            } else {
+////                btnSimpanTransaksi.setEnabled(true);
+////                sql.simpanTransaksi(noTransaksi, noOrder, tglTransaksi, total, bayar, kembali, keluhan);
+//            }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Anda harus mengisi data dengan lengkap", "Peringatan", JOptionPane.WARNING_MESSAGE);
@@ -543,12 +556,12 @@ public class FrmTransaksi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtKeluhanKeyTyped
 
-    private void btnCetakTransaksi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakTransaksi1ActionPerformed
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
         // TODO add your handling code here:
         this.dispose();
         resetTransaksi();
         sql.autoNumberTransaksi();
-    }//GEN-LAST:event_btnCetakTransaksi1ActionPerformed
+    }//GEN-LAST:event_btnKeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -596,9 +609,9 @@ public class FrmTransaksi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static final javax.swing.JButton btnCetakTransaksi = new javax.swing.JButton();
-    public static final javax.swing.JButton btnCetakTransaksi1 = new javax.swing.JButton();
     private javax.swing.JButton btnDaftarOder;
     private javax.swing.JButton btnHapusTransaksi;
+    public static final javax.swing.JButton btnKeluar = new javax.swing.JButton();
     public static final javax.swing.JButton btnSimpanTransaksi = new javax.swing.JButton();
     private javax.swing.JButton btnUbahTransaksi;
     public static final javax.swing.JTextField dummyField2 = new javax.swing.JTextField();

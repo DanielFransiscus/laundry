@@ -557,7 +557,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnBatalOrder" min="-2" pref="99" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="btnBatalOrder1" min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="btnKeluar" min="-2" pref="99" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -571,7 +571,7 @@
                           <Component id="btnUbahOrder" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="btnHapusOrder" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="btnBatalOrder" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="btnBatalOrder1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="btnKeluar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -643,7 +643,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBatalOrderActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnBatalOrder1">
+            <Component class="javax.swing.JButton" name="btnKeluar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="11" style="0"/>
@@ -656,7 +656,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBatalOrder1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKeluarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

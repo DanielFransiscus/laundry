@@ -114,6 +114,7 @@ public class Sequel {
     private final String autoNumberPaket = "select max(right(no_paket,4)) as no from paket";
     private final String showPaket = "SELECT * FROM paket";
     private final String isPaketExists = "SELECT * FROM paket WHERE  no_paket = ?";
+    private final String isPaketExists2 = "SELECT * FROM order_detail WHERE no_order = ? AND no_paket = ?";
     private final String showNoLabelPaket = "SELECT * FROM paket WHERE nama_paket = ?";
 
     private final String simpanPelanggan = "INSERT INTO pelanggan (no_pelanggan, nama_pelanggan, kontak) VALUES (?,?,?)";
@@ -133,8 +134,7 @@ public class Sequel {
     private final String autoNumberOrder = "select max(right(no_order,4)) as no from orderku";
     private final String orderExists = "SELECT * FROM orderku WHERE id_admin = ? AND no_order = ?";
 
-    private final String orderExists2 = "SELECT * FROM transaksi WHERE id_admin = ? AND no_order = ?";
-
+//    private final String orderExists2 = "SELECT no_order FROM transaksi WHERE id_admin = ? AND no_order = ?";
     private final String showOrder = "SELECT * FROM orderku WHERE id_admin = ? order by tgl_pesan";
     private final String showOrder2 = "SELECT * FROM order_detail WHERE no_order = ?";
 
@@ -620,6 +620,28 @@ public class Sequel {
         return check;
     }
 
+    public boolean isPaketExists2() {
+        Boolean check = true;
+        try {
+            int baris = jTableOrderDetail.getSelectedRow();
+            String noPaketTabel = jTableOrderDetail.getValueAt(baris, 1).toString();
+            pst = conn.prepareStatement(isPaketExists2);
+            pst.setString(1, txtNoOrder2.getText());
+            pst.setString(2, noPaketTabel);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                check = true;
+            } else {
+                check = false;
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return check;
+    }
+
     public void simpanPaket(String noPaket, String namaPaket, int harga) {
         try {
             pst = conn.prepareStatement(simpanPaket);
@@ -720,25 +742,24 @@ public class Sequel {
         return check;
     }
 
-    public boolean isOrderExists2(String noOrder) {
-        Boolean check = true;
-        try {
-            pst = conn.prepareStatement(orderExists2);
-            pst.setInt(1, userID);
-            pst.setString(2, noOrder);
-            rs = pst.executeQuery();
-            if (rs.next()) {
-                check = true;
-            } else {
-                check = false;
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-        return check;
-    }
-
+//    public boolean isOrderExists2(String noOrder) {
+//        Boolean check = true;
+//        try {
+//            pst = conn.prepareStatement(orderExists2);
+//            pst.setInt(1, userID);
+//            pst.setString(2, noOrder);
+//            rs = pst.executeQuery();
+//            if (rs.next()) {
+//                check = true;
+//            } else {
+//                check = false;
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//            return false;
+//        }
+//        return check;
+//    }
     public void simpanOrder(String noOrder, String noPelanggan, String namaPelanggan, String tglOrder, String status) {
         try {
             pst = conn.prepareStatement(simpanOrder);
@@ -882,7 +903,9 @@ public class Sequel {
         modelOrderDetail.addColumn("Harga");
         modelOrderDetail.addColumn("Sub Total");
         jTableOrderDetail.setModel(modelOrderDetail);
-        jTableOrderDetail.setDefaultEditor(Object.class, null);
+        jTableOrderDetail
+                .setDefaultEditor(Object.class,
+                        null);
         try {
             pst = conn.prepareStatement(showOrder2);
             pst.setString(1, noOrder);
@@ -916,7 +939,9 @@ public class Sequel {
         modelOrder1.addColumn("Tanggal Pesan");
         modelOrder1.addColumn("Status Pengejerjaan");
         jTableAllOrder.setModel(modelOrder1);
-        jTableAllOrder.setDefaultEditor(Object.class, null);
+        jTableAllOrder
+                .setDefaultEditor(Object.class,
+                        null);
         try {
             pst = conn.prepareStatement(showOrder);
             pst.setInt(1, userID);
@@ -978,7 +1003,9 @@ public class Sequel {
         modelOrder1.addColumn("Tanggal Pesan");
         modelOrder1.addColumn("Status Pengejerjaan");
         jTableAllOrder.setModel(modelOrder1);
-        jTableAllOrder.setDefaultEditor(Object.class, null);
+        jTableAllOrder
+                .setDefaultEditor(Object.class,
+                        null);
         try {
             pst = conn.prepareStatement(showStatus);
             pst.setInt(1, userID);
@@ -1185,7 +1212,9 @@ public class Sequel {
         modelTransaksi1.addColumn("Harga");
         modelTransaksi1.addColumn("Sub Total");
         jTableTransaksi.setModel(modelTransaksi1);
-        jTableTransaksi.setDefaultEditor(Object.class, null);
+        jTableTransaksi
+                .setDefaultEditor(Object.class,
+                        null);
         try {
             pst = conn.prepareStatement(showOrder2);
             pst.setString(1, noOrder);
@@ -1295,7 +1324,9 @@ public class Sequel {
         modelAllTransaksi.addColumn("Kembali");
         modelAllTransaksi.addColumn("Keluhan");
         jTableAllTransaksi.setModel(modelAllTransaksi);
-        jTableAllTransaksi.setDefaultEditor(Object.class, null);
+        jTableAllTransaksi
+                .setDefaultEditor(Object.class,
+                        null);
         try {
             pst = conn.prepareStatement(showTransaksi);
             pst.setInt(1, userID);
@@ -1390,7 +1421,9 @@ public class Sequel {
         modelAllOrder.addColumn("Nama Pelanggan");
         modelAllOrder.addColumn("Tanggal Order");
         jTableOrderDetail2.setModel(modelAllOrder);
-        jTableOrderDetail2.setDefaultEditor(Object.class, null);
+        jTableOrderDetail2
+                .setDefaultEditor(Object.class,
+                        null);
         try {
             pst = conn.prepareStatement(tampilTabelOrderDetail);
             pst.setInt(1, userID);
@@ -1446,7 +1479,9 @@ public class Sequel {
         modelPelanggan2.addColumn("Nama");
         modelPelanggan2.addColumn("Kontak");
         jTablePelanggan2.setModel(modelPelanggan2);
-        jTablePelanggan2.setDefaultEditor(Object.class, null);
+        jTablePelanggan2
+                .setDefaultEditor(Object.class,
+                        null);
         try {
             pst = conn.prepareStatement(showPelanggan);
             rs = pst.executeQuery();
@@ -1599,7 +1634,9 @@ public class Sequel {
         modelKategori.addColumn("No Kategori");
         modelKategori.addColumn("kategori");
         jTableAllKategori.setModel(modelKategori);
-        jTableAllKategori.setDefaultEditor(Object.class, null);
+        jTableAllKategori
+                .setDefaultEditor(Object.class,
+                        null);
         try {
             pst = conn.prepareStatement(tampilKategori);
             rs = pst.executeQuery();
