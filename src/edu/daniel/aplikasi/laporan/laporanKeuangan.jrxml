@@ -10,7 +10,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\DANIELFRANS\\Documents\\NetBeansProjects\\Laundry\\src\\edu\\daniel\\aplikasi\\laporan\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["/edu/daniel/aplikasi/laporan/"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[select SUM(total_harga) as total from transaksi where tgl_transaksi BETWEEN $P{fromd} and $P{tod}]]>

@@ -7,7 +7,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\DANIELFRANS\\Documents\\NetBeansProjects\\Laundry\\src\\edu\\daniel\\aplikasi\\laporan\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["/edu/daniel/aplikasi/laporan/"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT * FROM orderku o LEFT JOIN order_detail p ON o.no_order = p.no_order LEFT JOIN transaksi t ON p.no_order = t.no_order WHERE o.no_order = $P{no_order}]]>
